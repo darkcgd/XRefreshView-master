@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_load_more"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/refresh"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_marginBottom="30px"
+        android:layout_marginTop="30px"
+        android:src="@drawable/load_refresh" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30px"
+        android:layout_marginLeft="30px"
+        android:layout_marginBottom="30px"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/handler_move"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下拉可以刷新" />
+
+        <TextView
+            android:id="@+id/move_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:text="最好刷新时间：12:54" />
+    </LinearLayout>
+</LinearLayout>
+
