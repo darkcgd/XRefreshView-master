@@ -341,7 +341,7 @@ public class XRefreshView extends LinearLayout {
     protected void onLayout(boolean changed, int l, int t2, int r, int b) {
 //        super.onLayout(changed, l, t2, r, b);
 //        if(mHolder.mOffsetY!=0)return;
-        LogUtils.d("onLayout mHolder.mOffsetY=" + mHolder.mOffsetY);
+        //LogUtils.d("onLayout mHolder.mOffsetY=" + mHolder.mOffsetY);
         int childCount = getChildCount();
         int top = getPaddingTop() + mHolder.mOffsetY;
         int adHeight = 0;
@@ -462,7 +462,7 @@ public class XRefreshView extends LinearLayout {
                 if (mMoveForHorizontal) {
                     return super.dispatchTouchEvent(ev);
                 }
-                LogUtils.d("isTop=" + mContentView.isTop() + ";isBottom=" + mContentView.isBottom());
+                //LogUtils.d("isTop=" + mContentView.isTop() + ";isBottom=" + mContentView.isBottom());
                 if (deltaY > 0 && mHolder.mOffsetY <= mHeadMoveDistence || deltaY < 0) {
                     deltaY = (int) (deltaY / OFFSET_RADIO);
                 } else {
@@ -553,7 +553,7 @@ public class XRefreshView extends LinearLayout {
 
     private void sendCancelEvent() {
         if (!mHasSendCancelEvent) {
-            LogUtils.d("sendCancelEvent");
+            //LogUtils.d("sendCancelEvent");
             setRefreshTime();
             mHasSendCancelEvent = true;
             mHasSendDownEvent = false;
@@ -585,7 +585,7 @@ public class XRefreshView extends LinearLayout {
 
     private void sendDownEvent() {
         if (!mHasSendDownEvent) {
-            LogUtils.d("sendDownEvent");
+            //LogUtils.d("sendDownEvent");
             mHasSendCancelEvent = false;
             mHasSendDownEvent = true;
             isIntercepted = false;
@@ -689,7 +689,7 @@ public class XRefreshView extends LinearLayout {
                 moveView(deltaY);
             }
             if (mEnablePullRefresh && !mPullRefreshing) {
-                Log.i("============",mHolder.mOffsetY+"::"+mHeaderViewHeight+"::"+(mHolder.mOffsetY > mHeaderViewHeight));
+                //Log.i("============",mHolder.mOffsetY+"::"+mHeaderViewHeight+"::"+(mHolder.mOffsetY > mHeaderViewHeight));
                 if (mHolder.mOffsetY > mHeaderViewHeight) {
                     if (mState != XRefreshViewState.STATE_READY) {
                         mHeaderCallBack.onStateReady();
@@ -765,7 +765,7 @@ public class XRefreshView extends LinearLayout {
                 }
 
                 if (mEnablePullLoad && !mPullLoading) {
-                    Log.i("============",mHolder.mOffsetY+"::"+mFootHeight+"::"+(mHolder.mOffsetY > mFootHeight));
+                    //Log.i("============",mHolder.mOffsetY+"::"+mFootHeight+"::"+(mHolder.mOffsetY > mFootHeight));
                     if (-mHolder.mOffsetY < mFootHeight) {
                         if (mState != XRefreshViewState.STATE_READY) {
                             mFooterCallBack.onStateReady();
@@ -842,7 +842,7 @@ public class XRefreshView extends LinearLayout {
             offsetY = 0 - mHolder.mOffsetY;
             startScroll(offsetY, Utils.computeScrollVerticalDuration(offsetY, getHeight()));
         }
-        LogUtils.d("resetHeaderHeight offsetY=" + offsetY);
+        //LogUtils.d("resetHeaderHeight offsetY=" + offsetY);
     }
 
     public void moveView(int deltaY) {
@@ -874,7 +874,7 @@ public class XRefreshView extends LinearLayout {
      * stop refresh, reset header view.
      */
     public void stopRefresh(boolean success) {
-        LogUtils.d("stopRefresh mPullRefreshing=" + mPullRefreshing);
+        //LogUtils.d("stopRefresh mPullRefreshing=" + mPullRefreshing);
         if (mPullRefreshing == true) {
             mStopingRefresh = true;
             mHeaderCallBack.onStateFinish(success);
@@ -1057,7 +1057,7 @@ public class XRefreshView extends LinearLayout {
                 moveView(offsetY);
                 int[] location = new int[2];
                 mHeaderView.getLocationInWindow(location);
-                LogUtils.d("currentY=" + currentY + ";mHolder.mOffsetY=" + mHolder.mOffsetY);
+                //LogUtils.d("currentY=" + currentY + ";mHolder.mOffsetY=" + mHolder.mOffsetY);
                 if (enableReleaseToLoadMore && mHolder.mOffsetY == 0 && mReleaseToLoadMore && mContentView != null && mContentView.isBottom()) {
                     mReleaseToLoadMore = false;
                     mContentView.startLoadMore(false, null, null);
