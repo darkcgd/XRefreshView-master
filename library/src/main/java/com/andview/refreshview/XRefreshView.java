@@ -972,8 +972,10 @@ public class XRefreshView extends LinearLayout {
             AbsListView absListView = (AbsListView) child;
             absListView.smoothScrollBy(offset, 0);
         } else if (child instanceof RecyclerView) {
-            RecyclerView recyclerView = (RecyclerView) child;
-            recyclerView.smoothScrollBy(0,offset*5);
+            if(!mHasLoadComplete){
+                RecyclerView recyclerView = (RecyclerView) child;
+                recyclerView.smoothScrollBy(0,offset*5);
+            }
         }
     }
 
