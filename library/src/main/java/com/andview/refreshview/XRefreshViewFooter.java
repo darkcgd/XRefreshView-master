@@ -14,7 +14,7 @@ public class XRefreshViewFooter extends LinearLayout implements IFooterCallBack 
     private Context mContext;
 
     private View mContentView;
-    private View mProgressBar;
+    private TextView mProgressBar;
     private TextView mHintView;
     private TextView mClickView;
     private boolean showing = true;
@@ -72,7 +72,7 @@ public class XRefreshViewFooter extends LinearLayout implements IFooterCallBack 
             mHintView.setText(R.string.xrefreshview_footer_hint_normal);
         } else {
             //处理数据加载失败时ui显示的逻辑，也可以不处理，看自己的需求
-            mHintView.setText(R.string.xrefreshview_footer_hint_fail);
+            mHintView.setText(R.string.xrefreshview_footer_hint_normal);
         }
         mHintView.setVisibility(View.VISIBLE);
         mProgressBar.setVisibility(View.GONE);
@@ -112,7 +112,7 @@ public class XRefreshViewFooter extends LinearLayout implements IFooterCallBack 
         moreView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 
         mContentView = moreView.findViewById(R.id.xrefreshview_footer_content);
-        mProgressBar = moreView
+        mProgressBar = (TextView) moreView
                 .findViewById(R.id.xrefreshview_footer_progressbar);
         mHintView = (TextView) moreView
                 .findViewById(R.id.xrefreshview_footer_hint_textview);
